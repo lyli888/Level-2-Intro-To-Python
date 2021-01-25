@@ -103,3 +103,12 @@ f.write("O'Tooley: " + str(ot) + " votes " + str(ot2) + "%" + "\n")
 f.write("Winner is " + winname + "\n")
 
 f.close()
+
+print("Election Analysis \n")
+print("Total no. of votes: " + str(voters) + "\n")
+print( "Khan: " + str(k) + " votes " + str(k2) + "%" + "\n")
+print("Correy: " + str(c) + " votes " + str(c2) + "%" + "\n")
+print("Li: " + str(l) + " votes " + str(l2) + "%" + "\n")
+print("O'Tooley: " + str(ot) + " votes " + str(ot2) + "%" + "\n")
+print("O'Tooley: " + str(ot) + " votes " + str(ot2) + "%" + "\n")
+print("Winner is " + winname + "\n")
