@@ -1,0 +1,6 @@
+Financial Analysis 
+Total Months: 86
+Total: $38382578
+Average Change: $-2315.1176470588234
+Max Profits: Feb-12 $1926159
+Min Profits: Sep-13 $-2196167
