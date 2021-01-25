@@ -83,6 +83,6 @@ f.write("Average Change: $" + str(avg) + "\n")
 
 f.write("Max Profits: " + caldata[monthmax] + " $" + str(profitmax) + "\n")
 
-f.write("Min Profits: " + caldata[monthmin] + " $" + str(lossmax) + "\n")
+f.write("Min Profits: " + caldata[monthmin] + " $" + str(lossmax))
 
 f.close()
