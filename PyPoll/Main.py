@@ -9,6 +9,7 @@ rows = []
 voters = 0
 votes = []
 candidates = []
+
 k = 0
 c = 0
 l = 0
@@ -30,26 +31,40 @@ with open(filename, 'r') as csvfile:
         for x in votes: 
             if x not in candidates: 
                 candidates.append(x) 
+
+
+
                 
-                
-        for row in rows:
-            if row[2] == "Khan":
-                k = k + 1 
-                
-        for row in rows:
-            if row[2] == "Correy":
-                c = c + 1
                     
-        for row in rows:
-            if row[2] == "Li":
-                l = l + 1
-                
-        for row in rows:
-            if row[2] == "O'Tooley":  
-                ot = ot + 1                
                 
         
 voters = (len(rows)) 
+cnum = len(candidates)
+d = {}
+   
+
+for a in range(0, cnum):
+    d[a] = candidates[a]
+
+
+for key, value in sorted(d.items()):
+    print(key, value)
+
+for row in rows:
+    if row[2] == d[0]:
+        k = k + 1 
+                
+for row in rows:
+    if row[2] == d[1]:
+        c = c + 1
+                    
+for row in rows:
+    if row[2] == d[2]:
+        l = l + 1
+                
+for row in rows:
+    if row[2] == d[3]:  
+        ot = ot + 1    
 
 k2 = (k / voters) * 100
 
@@ -73,16 +88,16 @@ for z in win:
 winname = ""
 
 if win.index(winner) == 0:
-    winname = "Khan"
+    winname = d[0]
         
 if win.index(winner) == 1:
-    winname = "Correy"
+    winname = d[1]
         
 if win.index(winner) == 2:
-    winname = "Li"
+    winname = d[2]
         
 if win.index(winner) == 3:
-    winname == "O'Tooley"
+    winname == d[3]
     
 
 
@@ -92,23 +107,22 @@ f.write("Election Analysis \n")
 
 f.write("Total no. of votes: " + str(voters) + "\n")
 
-f.write( "Khan: " + str(k) + " votes " + str(k2) + "%" + "\n")
+for g in range(0, cnum):
+    f.write(d[g] + str(k) + " votes " + str(k2) + "%" + "\n")
 
-f.write("Correy: " + str(c) + " votes " + str(c2) + "%" + "\n")
 
-f.write("Li: " + str(l) + " votes " + str(l2) + "%" + "\n")
-
-f.write("O'Tooley: " + str(ot) + " votes " + str(ot2) + "%" + "\n")
 
 f.write("Winner is " + winname + "\n")
 
 f.close()
 
+
+
+    
 print("Election Analysis \n")
 print("Total no. of votes: " + str(voters) + "\n")
-print( "Khan: " + str(k) + " votes " + str(k2) + "%" + "\n")
-print("Correy: " + str(c) + " votes " + str(c2) + "%" + "\n")
-print("Li: " + str(l) + " votes " + str(l2) + "%" + "\n")
-print("O'Tooley: " + str(ot) + " votes " + str(ot2) + "%" + "\n")
-print("O'Tooley: " + str(ot) + " votes " + str(ot2) + "%" + "\n")
+
+for h in range(0, cnum):
+    print(d[h] + str(k) + " votes " + str(k2) + "%" + "\n")
+
 print("Winner is " + winname + "\n")
