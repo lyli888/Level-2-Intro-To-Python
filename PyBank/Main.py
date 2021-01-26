@@ -86,3 +86,10 @@ f.write("Max Profits: " + caldata[monthmax] + " $" + str(profitmax) + "\n")
 f.write("Min Profits: " + caldata[monthmin] + " $" + str(lossmax))
 
 f.close()
+
+print("Financial Analysis \n")
+print("Total Months: " + str(rownum) + "\n")
+print("Total: $" + str(sumdata) + "\n")
+print("Average Change: $" + str(avg) + "\n")
+print("Max Profits: " + caldata[monthmax] + " $" + str(profitmax) + "\n")
+print("Min Profits: " + caldata[monthmin] + " $" + str(lossmax))
