@@ -31,12 +31,7 @@ with open(filename, 'r') as csvfile:
         for x in votes: 
             if x not in candidates: 
                 candidates.append(x) 
-
-
-
-                
-                    
-                
+               
         
 voters = (len(rows)) 
 cnum = len(candidates)
@@ -46,9 +41,6 @@ d = {}
 for a in range(0, cnum):
     d[a] = candidates[a]
 
-
-for key, value in sorted(d.items()):
-    print(key, value)
 
 for row in rows:
     if row[2] == d[0]:
@@ -100,7 +92,6 @@ if win.index(winner) == 3:
     winname == d[3]
     
 
-
 f = open("Analysis/Analysis.txt", "a")
 
 f.write("Election Analysis \n")
@@ -116,10 +107,9 @@ f.write("Winner is " + winname + "\n")
 
 f.close()
 
-
-
     
 print("Election Analysis \n")
+
 print("Total no. of votes: " + str(voters) + "\n")
 
 for h in range(0, cnum):
