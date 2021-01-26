@@ -36,7 +36,9 @@ with open(filename, 'r') as csvfile:
 voters = (len(rows)) 
 cnum = len(candidates)
 d = {}
-   
+votep = []
+votes = []
+currentp = 0
 
 for a in range(0, cnum):
     d[a] = candidates[a]
@@ -56,41 +58,30 @@ for row in rows:
                 
 for row in rows:
     if row[2] == d[3]:  
-        ot = ot + 1    
+        ot = ot + 1  
+          
+votes = [k, c, l, ot]
 
-k2 = (k / voters) * 100
+k2 = (k/voters) * 100
+c2 = (c/voters) * 100
+l2 = (l/voters) * 100
+ot2 = (ot/voters) * 100
 
-c2 = (c / voters) * 100
-
-l2 = (l / voters) * 100
-
-ot2 = (ot / voters) * 100
-
-win = [k2, c2, l2, ot2]
+votep = [k2, c2, l2, ot2]
 
 winner = 0
 
 i = 0
 
-for z in win: 
-    if win[i]>winner: 
-        winner=win[i] 
+for z in votes: 
+    if votes[i]>winner: 
+        winner=votes[i] 
         i = i + 1 
-        
-winname = ""
 
-if win.index(winner) == 0:
-    winname = d[0]
-        
-if win.index(winner) == 1:
-    winname = d[1]
-        
-if win.index(winner) == 2:
-    winname = d[2]
-        
-if win.index(winner) == 3:
-    winname == d[3]
-    
+winum = 0
+winnum = votes.index(winner)
+
+winname = d[winum]
 
 f = open("Analysis/Analysis.txt", "a")
 
@@ -99,7 +90,8 @@ f.write("Election Analysis \n")
 f.write("Total no. of votes: " + str(voters) + "\n")
 
 for g in range(0, cnum):
-    f.write(d[g] + str(k) + " votes " + str(k2) + "%" + "\n")
+   
+    f.write(str(candidates[g]) + " " + str(votes[g]) + " votes " + str(votep[g]) + "%" + "\n")
 
 
 
@@ -113,6 +105,6 @@ print("Election Analysis \n")
 print("Total no. of votes: " + str(voters) + "\n")
 
 for h in range(0, cnum):
-    print(d[h] + str(k) + " votes " + str(k2) + "%" + "\n")
+    print(str(candidates[h]) + " " + str(votes[h]) + " votes " + str(votep[h]) + "%" + "\n")
 
 print("Winner is " + winname + "\n")
