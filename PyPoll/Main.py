@@ -10,10 +10,7 @@ voters = 0
 votes = []
 candidates = []
 
-k = 0
-c = 0
-l = 0
-ot = 0
+
 
 with open(filename, 'r') as csvfile: 
 
@@ -36,40 +33,25 @@ with open(filename, 'r') as csvfile:
 voters = (len(rows)) 
 cnum = len(candidates)
 d = {}
-votep = []
-votes = []
+votep = {}
+votes = {}
 
 
-for a in range(0, cnum):
-    d[a] = candidates[a]
+for n in range(0, cnum):
+    d[n] = 0
 
-
-for row in rows:
-    if row[2] == d[0]:
-        k = k + 1 
+for q in range(0, cnum):
+    for row in rows:
+        if row[2] == candidates[q]:
+            d[q] = d[q] + 1 
                 
-for row in rows:
-    if row[2] == d[1]:
-        c = c + 1
-                    
-for row in rows:
-    if row[2] == d[2]:
-        l = l + 1
-                
-for row in rows:
-    if row[2] == d[3]:  
-        ot = ot + 1  
-          
-votes = [k, c, l, ot]
+for p in range(0, cnum):
+    votes[p] = d[p]
 
-k2 = (k/voters) * 100
-c2 = (c/voters) * 100
-l2 = (l/voters) * 100
-ot2 = (ot/voters) * 100
+for r in range(0, cnum):
+    votep[r] = (votes[r]/voters) * 100
 
-votep = [k2, c2, l2, ot2]
-
-winner = 0
+winner = votes[0]
 
 i = 0
 
@@ -78,10 +60,8 @@ for z in votes:
         winner=votes[i] 
         i = i + 1 
 
-winum = 0
-winnum = votes.index(winner)
 
-winname = d[winum]
+winname = candidates[i]
 
 f = open("Analysis/Analysis.txt", "a")
 
