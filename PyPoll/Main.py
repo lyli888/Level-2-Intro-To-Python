@@ -38,7 +38,7 @@ cnum = len(candidates)
 d = {}
 votep = []
 votes = []
-currentp = 0
+
 
 for a in range(0, cnum):
     d[a] = candidates[a]
